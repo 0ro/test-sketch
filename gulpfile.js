@@ -28,7 +28,7 @@ gulp.task('html', function(){
 
 gulp.task('css', function(){
   return gulp.src('src/css/**/*.css')
-    .pipe(postcss([ autoprefixer({ browsers: ['last 10 versions'] }) ]))
+    .pipe(postcss([ autoprefixer({ browsers: ['last 20 versions'] }) ]))
     .pipe(csscomb('src/css/config-csscomb.json'))
     .pipe(concat.header('/* ============================= START <%= file.relative %> ============================= */\n'))
     .pipe(concat.footer('\n/* ============================= END <%= file.relative %> ============================= */\n'))
@@ -58,7 +58,7 @@ gulp.task('fonts', function() {
 gulp.task('js', function(){
   return gulp.src('src/js/**/*.js')
     .pipe(uglify())
-    .pipe(concat('scripts.min.css'))
+    .pipe(concat('scripts.min.js'))
     .pipe(gulp.dest('./build/js'))
     .pipe(connect.reload());
 });
